@@ -127,6 +127,31 @@ The flagship "Spend my DGN" flow swaps DGN → USDC on the Dungeon DEX, bridges 
 
 ---
 
+## AI play-agent
+
+`tools/play-snap-agent.cjs` is an automated smoke runner. It launches Chrome with MetaMask Flask loaded, drives the companion site through every smoke action, auto-clicks Flask approval popups, screenshots each step, and (with `--review`) sends the screenshot reel to Claude Sonnet for visual bug-flagging.
+
+### One-time setup
+
+1. Download MetaMask Flask Chrome zip from [the GitHub releases](https://github.com/MetaMask/metamask-extension/releases) — look for `metamask-flask-chrome-<version>-flask.0.zip`.
+2. Extract to `.flask-extension/` at the repo root (so `manifest.json` is at `.flask-extension/manifest.json`).
+3. Start the snap server in one terminal: `yarn workspace dungeon-snap serve`.
+4. Start the companion site in another: `yarn workspace site start`.
+5. Run the agent: `node tools/play-snap-agent.cjs`.
+6. On the first run, you'll need to onboard Flask (set password, import/create a test seed). The profile is saved to `~/.dungeon-snap-flask-profile/` and reused on subsequent runs.
+
+### Modes
+
+```
+node tools/play-snap-agent.cjs            # headed, no AI review
+node tools/play-snap-agent.cjs --review   # adds Claude Sonnet vision pass
+node tools/play-snap-agent.cjs --headless # CI mode
+```
+
+Outputs land in `ai-reports/play-session/<timestamp>/`: screenshots + `session.log` + `vision-review.md` (if `--review`).
+
+---
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).

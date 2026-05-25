@@ -5,6 +5,10 @@ coverage/
 .cache/
 public/
 
+# Play-agent — Flask extension binaries + run reports
+.flask-extension/
+ai-reports/
+
 # Logs
 logs
 *.log

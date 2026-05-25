@@ -33,6 +33,7 @@
     "ws": "^8.17.1"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
     "@lavamoat/allow-scripts": "^3.3.4",
     "@lavamoat/preinstall-always-fail": "^2.0.0",
     "@metamask/eslint-config": "^14.0.0",
@@ -51,6 +52,7 @@
     "eslint-plugin-promise": "^7.1.0",
     "prettier": "^3.3.3",
     "prettier-plugin-packagejson": "^2.2.18",
+    "puppeteer": "^25.0.4",
     "sharp": "^0.32.6",
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.6.0"
@@ -62,6 +64,7 @@
   "lavamoat": {
     "allowScripts": {
       "@lavamoat/preinstall-always-fail": false,
+      "puppeteer": true,
       "sharp": true
     }
   }
