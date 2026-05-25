@@ -1,0 +1,36 @@
+{
+  "version": "0.1.0",
+  "description": "Dungeon ($DGN) wallet for dungeon-1 chain — view balance, sign txs, spend DGN.",
+  "proposedName": "Dungeon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ninjaxan/dungeon-snap.git"
+  },
+  "source": {
+    "shasum": "IrCGYfER3gDwrchTWLts852l34Sk1WwQlPfrIcl1U+U=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "dungeon-snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_dialog": {},
+    "endowment:rpc": {
+      "dapps": true,
+      "snaps": false
+    },
+    "endowment:network-access": {},
+    "snap_getBip32Entropy": [
+      {
+        "path": ["m", "44'", "118'"],
+        "curve": "secp256k1"
+      }
+    ]
+  },
+  "platformVersion": "10.3.0",
+  "manifestVersion": "0.1"
+}
